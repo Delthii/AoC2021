@@ -12,6 +12,7 @@ namespace AoC2021
         {
             var numbers = input.Select(x => int.Parse(x)).ToArray();
             int cnt = 0;
+
             for(int i = 1; i < numbers.Length; i++)
             {
                 if (numbers[i] > numbers[i - 1]) cnt++;
@@ -24,6 +25,7 @@ namespace AoC2021
         {
             var numbers = input.Select(x => int.Parse(x)).ToArray();
             int cnt = 0;
+
             for (int i = 3; i < numbers.Length; i++)
             {
                 int sum1 = numbers[i - 3] + numbers[i - 2] + numbers[i - 1];
