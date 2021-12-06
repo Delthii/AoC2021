@@ -1,6 +1,6 @@
 ﻿using AoC2021;
 
-var day07 = new Day06();
+var day07 = new Day07();
 day07.PartA(GetTestInput(7));
 //day06.PartA(GetInput(7));
 day07.PartB(GetTestInput(7));
