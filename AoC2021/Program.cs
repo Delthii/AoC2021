@@ -2,9 +2,9 @@
 
 var day07 = new Day07();
 day07.PartA(GetTestInput(7));
-//day06.PartA(GetInput(7));
+day07.PartA(GetInput(7));
 day07.PartB(GetTestInput(7));
-//day06.PartB(GetInput(7));
+day07.PartB(GetInput(7));
 
 string[] GetInput(int day)
 {
