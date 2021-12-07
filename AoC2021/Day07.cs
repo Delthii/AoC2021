@@ -12,6 +12,7 @@ namespace AoC2021
         {
             Solve(lines, (x) => x);
         }
+
         public void PartB(string[] lines)
         {
             Solve(lines, CalcFuel);
