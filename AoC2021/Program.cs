@@ -1,10 +1,10 @@
 ﻿using AoC2021;
 
-var day08 = new Day08();
-day08.PartA(GetTestInput(8));
-day08.PartA(GetInput(8));
-day08.PartB(GetTestInput(8));
-day08.PartB(GetInput(8));
+var day09 = new Day09();
+day09.PartA(GetTestInput(9));
+day09.PartA(GetInput(9));
+day09.PartB(GetTestInput(9));
+day09.PartB(GetInput(9));
 
 
 string[] GetInput(int day)
