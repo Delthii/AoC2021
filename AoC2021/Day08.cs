@@ -163,6 +163,7 @@ namespace AoC2021
                             valid = false;
                             break;
                         }
+                        
                     }
                     if (valid)
                     {
