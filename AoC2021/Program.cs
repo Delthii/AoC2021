@@ -1,10 +1,10 @@
 ﻿using AoC2021;
 
-var day10 = new Day10();
-day10.PartA(GetTestInput(10));
-day10.PartA(GetInput(10));
-day10.PartB(GetTestInput(10));
-day10.PartB(GetInput(10));
+var day12 = new Day12();
+day12.PartA(GetTestInput(11));
+day12.PartA(GetInput(11));
+day12.PartB(GetTestInput(11));
+day12.PartB(GetInput(11));
 
 
 
