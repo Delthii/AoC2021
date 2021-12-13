@@ -42,7 +42,7 @@ namespace AoC2021
 
         public int GetNumberOfPathsB()
         {
-            RecB("start", new List<string>());
+            RecB("start", new List<string>(), null);
 
             return paths.Count;
         }
@@ -72,7 +72,7 @@ namespace AoC2021
             }
         }
 
-        private void RecB(string caveStr, List<string> path)
+        private void RecB(string caveStr, List<string> path, string? duplicate)
         {
             path.Add(caveStr);
             if (caveStr == "end")
@@ -84,16 +84,26 @@ namespace AoC2021
             var cave = caves[caveStr];
             foreach(var n in cave.N)
             {
+                var duplicateSet = false;
                 if (n.Name == "start") continue;
                 if(!n.Big)
                 {
-                    if(path.Contains(n.Name) && path.Where(p => p[0] > 'Z').GroupBy(p => p).Any(g => g.Count() > 1))
+                    if(path.Contains(n.Name))
                     {
-                        continue;
+                        if(duplicate != null)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            duplicate = n.Name;
+                            duplicateSet = true;
+                        }
                     }
                 }
 
-                RecB(n.Name, path.ToList());
+                RecB(n.Name, path.ToList(), duplicate);
+                if (duplicateSet) duplicate = null;
             }
         }
 
