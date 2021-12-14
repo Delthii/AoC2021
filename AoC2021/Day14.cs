@@ -52,14 +52,13 @@ namespace AoC2021
             foreach (var kv in multiset.ToArray())
             {
                 counts[kv.Key[0]] += kv.Value;
-                counts[kv.Key[1]] += kv.Value;
             }
             counts[poly[^1]]++;
 
             var max = counts.Values.Max();
             var min = counts.Values.Min();
 
-            Console.WriteLine(max / 2 - min / 2);
+            Console.WriteLine(max - min);
         }
     }
 }

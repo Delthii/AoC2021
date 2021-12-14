@@ -1,6 +1,6 @@
 ﻿using AoC2021;
 
-var day15 = new Day14();
+var day15 = new Day15();
 day15.PartA(GetTestInput(15));
 day15.PartA(GetInput(15));
 day15.PartB(GetTestInput(15));
