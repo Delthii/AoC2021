@@ -1,11 +1,12 @@
 ﻿namespace Utils
 {
-    public class Grid<T>
+    public class Grid<T> : IGrid<T>
     {
         private readonly T[][] grid;
         public int Width { get; private set; }
         public int Height { get; private set; }
 
+        public T[] this[int x] { get => grid[x]; set => grid[x] = value; }
 
         public Grid(IEnumerable<IEnumerable<T>> rowsAndCols)
         {
@@ -37,10 +38,10 @@
             return false;
         }
 
-        public IEnumerable<GridNode<T>> GetConnectedComponent(int x, int y, Func<T, bool> predicate)
+        public IEnumerable<IGridNode<T>> GetConnectedComponent(int x, int y, Func<T, bool> predicate)
         {
-            var cc = new HashSet<GridNode<T>>();
-            var stack = new Stack<GridNode<T>>();
+            var cc = new HashSet<IGridNode<T>>();
+            var stack = new Stack<IGridNode<T>>();
             var root = GetNode(x, y);
             stack.Push(root);
             cc.Add(root);
@@ -66,7 +67,7 @@
             return grid[y][x];
         }
 
-        public GridNode<T> GetNode(int x, int y)
+        public IGridNode<T> GetNode(int x, int y)
         {
             return new GridNode<T>(this, x, y);
         }
@@ -83,7 +84,7 @@
             return false;
         }
         
-        public IEnumerable<GridNode<T>> GetN8(int x, int y)
+        public IEnumerable<IGridNode<T>> GetN8(int x, int y)
         {
             var N = new List<GridNode<T>>();
 
@@ -99,12 +100,12 @@
             return N;
         }
 
-        public IEnumerable<GridNode<T>> GetN4(GridNode<T> node)
+        public IEnumerable<IGridNode<T>> GetN4(IGridNode<T> node)
         {
             return GetN4(node.X, node.Y);
         }
 
-        public IEnumerable<GridNode<T>> GetN4(int x, int y)
+        public IEnumerable<IGridNode<T>> GetN4(int x, int y)
         {
             var N = new List<GridNode<T>>();
 
@@ -116,7 +117,7 @@
             return N;
         }
 
-        public IEnumerable<GridNode<T>> GetN8(GridNode<T> node)
+        public IEnumerable<IGridNode<T>> GetN8(IGridNode<T> node)
         {
             return GetN8(node.X, node.Y);
         }
@@ -127,17 +128,17 @@
         }
     }
 
-    public class GridNode<T>
+    public class GridNode<T> : IGridNode<T>
     {
         private readonly Grid<T> grid;
-        public readonly int X;
-        public readonly int Y;
+        public int X { get; }
+        public int Y { get; }
 
         public GridNode(Grid<T> grid, int x, int y)
         {
             this.grid = grid;
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
 
         public T Value => grid.Get(X, Y);

@@ -13,7 +13,7 @@ namespace AoC2021
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(map);
-            List<GridNode<int>> lowPoints = GetLowPoints(grid);
+            List<IGridNode<int>> lowPoints = GetLowPoints(grid);
 
             Console.WriteLine(lowPoints.Sum(lp => lp.Value + 1));
         }
@@ -22,7 +22,7 @@ namespace AoC2021
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(map);
-            List<GridNode<int>> lowPoints = GetLowPoints(grid);
+            List<IGridNode<int>> lowPoints = GetLowPoints(grid);
 
             var ans = lowPoints
                 .Select(lp => grid.GetConnectedComponent(lp.X, lp.Y, x => x  < 9).Count())
@@ -32,9 +32,9 @@ namespace AoC2021
 
         }
 
-        private static List<GridNode<int>> GetLowPoints(Grid<int> grid)
+        private static List<IGridNode<int>> GetLowPoints(Grid<int> grid)
         {
-            var lowPoints = new List<GridNode<int>>();
+            var lowPoints = new List<IGridNode<int>>();
 
             for (int x = 0; x < grid.Width; x++)
             {
