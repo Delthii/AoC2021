@@ -6,7 +6,7 @@
         public int Width { get; private set; }
         public int Height { get; private set; }
 
-        public T[] this[int x] { get => grid[x]; set => grid[x] = value; }
+        public T this[int x, int y] { get => Get(x, y); set => Set(x, y, value); }
 
         public Grid(IEnumerable<IEnumerable<T>> rowsAndCols)
         {
@@ -17,8 +17,8 @@
 
         public Grid(int width, int height, T fill)
         {
-            this.Width = width;
-            this.Height = height;
+            Width = width;
+            Height = height;
             grid = new T[height].Select(x => new T[width].Select(item => fill).ToArray()).ToArray();
         }
 
@@ -125,40 +125,6 @@
         private bool InsideGrid(int x, int y)
         {
             return x >= 0 && x < Width && y >= 0 && y < Height;
-        }
-    }
-
-    public class GridNode<T> : IGridNode<T>
-    {
-        private readonly Grid<T> grid;
-        public int X { get; }
-        public int Y { get; }
-
-        public GridNode(Grid<T> grid, int x, int y)
-        {
-            this.grid = grid;
-            X = x;
-            Y = y;
-        }
-
-        public T Value => grid.Get(X, Y);
-        public void Set(T item)
-        {
-            grid.Set(X, Y, item);
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return obj is GridNode<T> node &&
-                   EqualityComparer<Grid<T>>.Default.Equals(grid, node.grid) &&
-                   X == node.X &&
-                   Y == node.Y &&
-                   EqualityComparer<T>.Default.Equals(Value, node.Value);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(X, Y, Value);
         }
     }
 }

@@ -6,7 +6,6 @@ day15.PartA(GetInput(15));
 day15.PartB(GetTestInput(15));
 day15.PartB(GetInput(15));
 
-
 string[] GetInput(int day)
 {
     string daystr = day < 10 ? "0" + day : day.ToString();

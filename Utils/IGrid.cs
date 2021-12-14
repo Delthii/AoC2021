@@ -2,7 +2,6 @@
 {
     public interface IGrid<T>
     {
-        public T[] this[int x] { get; set; }
         void Set(int x, int y, T item);
         bool TrySet(int x, int y, T item);
         IEnumerable<IGridNode<T>> GetConnectedComponent(int x, int y, Func<T, bool> predicate);
