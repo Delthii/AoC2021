@@ -12,7 +12,7 @@ namespace AoC2021
         public void PartA(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
-            var grid = new Grid<int>(map);
+            var grid = new Grid<int>(map, NeighbourSelectionTypes.N4);
             List<IGridNode<int>> lowPoints = GetLowPoints(grid);
 
             Console.WriteLine(lowPoints.Sum(lp => lp.Value + 1));
@@ -21,7 +21,7 @@ namespace AoC2021
         public void PartB(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
-            var grid = new Grid<int>(map);
+            var grid = new Grid<int>(map, NeighbourSelectionTypes.N4);
             List<IGridNode<int>> lowPoints = GetLowPoints(grid);
 
             var ans = lowPoints
@@ -41,8 +41,8 @@ namespace AoC2021
                 for (int y = 0; y < grid.Height; y++)
                 {
                     var cell = grid.GetNode(x, y);
-                    var temp = grid.GetN4(x, y).ToArray();
-                    var isLowPoint = grid.GetN4(x, y).All(x => x.Value > cell.Value);
+                    var temp = grid.GetN(x, y).ToArray();
+                    var isLowPoint = grid.GetN(x, y).All(x => x.Value > cell.Value);
                     if (isLowPoint)
                     {
                         lowPoints.Add(cell);

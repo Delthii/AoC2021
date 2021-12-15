@@ -13,20 +13,11 @@
             Y = y;
         }
 
-        public T Value { get => grid.Get(X, Y); set => Set(value); }
-        public void Set(T item)
-        {
-            grid.Set(X, Y, item);
-        }
+        public T Value { get => grid.Get(X, Y); set => grid.Set(X, Y, value); }
 
-        public IEnumerable<IGridNode<T>> GetN4()
+        public IEnumerable<IGridNode<T>> GetN()
         {
-            return grid.GetN4(this);
-        }
-
-        public IEnumerable<IGridNode<T>> GetN8()
-        { 
-            return grid.GetN8(this);
+            return grid.GetN(X, Y);
         }
 
         public override bool Equals(object? obj)

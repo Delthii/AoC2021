@@ -34,12 +34,12 @@ namespace AoC2021
             Console.WriteLine(cost);
         }
 
-        private int Distance((int X, int Y) start, (int X, int Y) end, IGrid<int> grid)
+        private int Distance((int X, int Y) start, (int X, int Y) end, Grid<int> grid)
         {
             return grid.Get(end.X, end.Y);
         }
 
-        private int Hueristic((int X, int Y) node, IGrid<int> grid)
+        private int Hueristic((int X, int Y) node, Grid<int> grid)
         {
             return grid.Width - node.X + grid.Height - node.Y;
         }

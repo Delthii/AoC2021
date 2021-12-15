@@ -12,7 +12,7 @@ namespace AoC2021
         public void PartA(string[] lines)
         {
             var gridArr = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
-            var grid = new Grid<int>(gridArr);
+            var grid = new Grid<int>(gridArr, NeighbourSelectionTypes.N8);
             var ans = 0;
 
             for (int T = 0; T < 100; ++T) {
@@ -55,7 +55,7 @@ namespace AoC2021
         public void PartB(string[] lines)
         {
             var gridArr = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
-            var grid = new Grid<int>(gridArr);
+            var grid = new Grid<int>(gridArr, NeighbourSelectionTypes.N8);
 
             for (int T = 0;; ++T)
             {
@@ -100,7 +100,7 @@ namespace AoC2021
         private void IncN(Grid<int> grid, (int, int) cell, List<(int x, int y)> kaboom, HashSet<(int x, int y)> flashed)
         {
             var (x, y) = cell;
-            foreach (var node in grid.GetN8(x, y))
+            foreach (var node in grid.GetN(x, y))
             {
                 node.Value++;
                 if (node.Value > 9 && !flashed.Contains((node.X, node.Y)))
