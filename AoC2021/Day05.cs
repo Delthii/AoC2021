@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day05
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             List<Segment> segments = CreateSegments(lines);
             List<List<int>> map = InitMap(1000);
@@ -32,9 +32,10 @@ namespace AoC2021
             }
 
             Console.WriteLine(ans);
+            return ans;
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             List<Segment> segments = CreateSegments(lines);
             List<List<int>> map = InitMap(1000);
@@ -70,6 +71,7 @@ namespace AoC2021
             }
 
             Console.WriteLine(ans);
+            return ans;
         }
 
         private static List<List<int>> InitMap(int size)

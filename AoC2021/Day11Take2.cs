@@ -9,7 +9,7 @@ namespace AoC2021
 {
     public class Day11Take2
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var gridArr = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(gridArr, NeighbourSelectionTypes.N8);
@@ -50,9 +50,10 @@ namespace AoC2021
             }
 
             Console.WriteLine(ans);
+            return ans;
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var gridArr = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(gridArr, NeighbourSelectionTypes.N8);
@@ -92,7 +93,7 @@ namespace AoC2021
                 if (flashed.Count == 100)
                 {
                     Console.WriteLine(T+1);
-                    break;
+                    return T + 1;
                 }
             }
         }

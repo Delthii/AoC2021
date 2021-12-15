@@ -9,16 +9,17 @@ namespace AoC2021
 {
     public  class Day09Take2
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(map, NeighbourSelectionTypes.N4);
             List<IGridNode<int>> lowPoints = GetLowPoints(grid);
 
             Console.WriteLine(lowPoints.Sum(lp => lp.Value + 1));
+            return lowPoints.Sum(lp => lp.Value + 1);
         }
         
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var grid = new Grid<int>(map, NeighbourSelectionTypes.N4);
@@ -30,6 +31,7 @@ namespace AoC2021
                 .Take(3)
                 .Aggregate(1, (a, b) => a * b);
 
+            return ans;
         }
 
         private static List<IGridNode<int>> GetLowPoints(Grid<int> grid)

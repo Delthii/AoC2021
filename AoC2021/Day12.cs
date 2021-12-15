@@ -8,20 +8,20 @@ namespace AoC2021
 {
     public class Day12
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var g = new Graph();
             foreach (var line in lines) g.InsertEdge(line);
 
-            Console.WriteLine(g.GetNumberOfPathsA());
+            return g.GetNumberOfPathsA();
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var g = new Graph();
             foreach (var line in lines) g.InsertEdge(line);
 
-            Console.WriteLine(g.GetNumberOfPathsB());
+            return g.GetNumberOfPathsB();
         }
     }
 

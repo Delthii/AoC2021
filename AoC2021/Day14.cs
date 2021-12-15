@@ -9,16 +9,16 @@ namespace AoC2021
 {
     public class Day14
     {
-        public void PartA(string[] lines)
+        public long PartA(string[] lines)
         {
-            DoIt(lines, 10);
+            return DoIt(lines, 10);
         }
-        public void PartB(string[] lines)
+        public long PartB(string[] lines)
         {
-            DoIt(lines, 40);
+            return DoIt(lines, 40);
         }
 
-        private static void DoIt(string[] lines, int iterations)
+        private static long DoIt(string[] lines, int iterations)
         {
             string poly = lines[0];
             Dictionary<string, string> rules = new Dictionary<string, string>();
@@ -59,6 +59,7 @@ namespace AoC2021
             var min = counts.Values.Min();
 
             Console.WriteLine(max - min);
+            return max - min;
         }
     }
 }

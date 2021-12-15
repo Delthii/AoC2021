@@ -4,7 +4,7 @@
     {
     }
 
-    public void PartA(string[] lines)
+    public int PartA(string[] lines)
     {
         int depth = 0;
         int forward = 0;
@@ -27,9 +27,10 @@
             }
         }
         Console.WriteLine(depth * forward);
+        return depth * forward;
     }
 
-    public void PartB(string[] lines)
+    public int PartB(string[] lines)
     {
         int depth = 0;
         int forward = 0;
@@ -54,5 +55,6 @@
             }
         }
         Console.WriteLine(depth * forward);
+        return depth * forward;
     }
 }

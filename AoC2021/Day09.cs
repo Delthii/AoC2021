@@ -8,14 +8,15 @@ namespace AoC2021
 {
     public class Day09
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var lowpoints = FindLowPoints(lines, map);
             Console.WriteLine(lowpoints.Sum(pos => map[pos.x][pos.y] + 1));
+            return lowpoints.Sum(pos => map[pos.x][pos.y] + 1);
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var map = lines.Select(x => x.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             List<(int x, int y)> lowpoints = FindLowPoints(lines, map);
@@ -27,6 +28,7 @@ namespace AoC2021
                 .Aggregate(1, (acc, x) => acc * x);
 
             Console.WriteLine(ans);
+            return ans;
         }
 
         private static List<(int x, int y)> FindLowPoints(string[] lines, int[][] map)

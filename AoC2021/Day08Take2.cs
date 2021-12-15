@@ -12,7 +12,7 @@ namespace AoC2021
         {
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var inp = lines.Select(line => line.Split(" | ")).Select(split => (input: split[0].Split(' '), output: split[1].Split(' '))).ToArray();
             var sum = 0;
@@ -33,6 +33,7 @@ namespace AoC2021
                 sum += int.Parse(ans);
             }
             Console.WriteLine(sum);
+            return sum;
         }
 
         private static void CalcLen6(string[] input, Dictionary<string, int> strToInt, Dictionary<int, string> intToStr)

@@ -8,11 +8,10 @@ namespace AoC2021
 {
     public class Day11
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var grid = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
             var ans = 0;
-
 
             for (int T = 0; T < 100; ++T) {
                 List<(int x, int y)> kaboom = new();
@@ -47,6 +46,8 @@ namespace AoC2021
 
                 ans += flashed.Count;
             }
+
+            return ans;
         }
 
         public void IncN(int[][] grid, (int, int) cell, List<(int x, int y)> kaboom, HashSet<(int x, int y)> flashed)
@@ -72,7 +73,7 @@ namespace AoC2021
             }
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var grid = lines.Select(str => str.ToCharArray().Select(c => c - '0').ToArray()).ToArray();
 
@@ -111,10 +112,9 @@ namespace AoC2021
                 if(flashed.Count == 100)
                 {
                     Console.WriteLine(T+1);
-                    break;
+                    return T + 1;
                 }
             }
         }
-
     }
 }

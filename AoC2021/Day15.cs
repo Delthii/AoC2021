@@ -9,15 +9,16 @@ namespace AoC2021
 {
     public class Day15
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var grid = new Grid<int>(lines.Select(line => line.Select(c => c - '0').ToArray()).ToArray());
             var (path, cost) = grid.GetClosestPath((0, 0), (grid.Width - 1, grid.Height - 1), Distance, Hueristic);
 
             Console.WriteLine(cost);
+            return cost;
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var map = lines.Select(line => line.Select(c => c - '0').ToArray()).ToArray();
             var temp = map.Select(row => X5(row)).ToArray();
@@ -32,6 +33,7 @@ namespace AoC2021
             var (path, cost) = grid.GetClosestPath((0, 0), (grid.Width - 1, grid.Height - 1), Distance, Hueristic);
             
             Console.WriteLine(cost);
+            return cost;
         }
 
         private int Distance((int X, int Y) start, (int X, int Y) end, Grid<int> grid)

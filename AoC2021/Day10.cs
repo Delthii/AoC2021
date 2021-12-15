@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day10
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             Dictionary<char, char> lookup = new Dictionary<char, char>();
             lookup[')'] = '(';
@@ -43,9 +43,10 @@ namespace AoC2021
                 
             }
             Console.WriteLine(incorrect.Sum(x => ToInt(x)));
+            return incorrect.Sum(x => ToInt(x));
         }
 
-        public void PartB(string[] lines)
+        public long PartB(string[] lines)
         {
             Dictionary<char, char> lookup = new Dictionary<char, char>();
             lookup[')'] = '(';
@@ -95,6 +96,8 @@ namespace AoC2021
             }
             ans.Sort();
             Console.WriteLine(ans[ans.Count / 2]);
+
+            return ans[ans.Count / 2];
         }
 
         private int ToInt(char c)

@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day03
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             int[] bitCounts = new int[lines[0].Length];
             for(int i = 0; i < lines.Length; i++)
@@ -39,9 +39,10 @@ namespace AoC2021
             }
 
             Console.WriteLine(Convert.ToInt32(gammaStr, 2) * Convert.ToInt32(epsilonStr, 2));
+            return Convert.ToInt32(gammaStr, 2) * Convert.ToInt32(epsilonStr, 2);
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var numbers = DoStuff(lines.ToList(), true);
             var oxygen = Convert.ToInt32(numbers[0], 2);
@@ -50,6 +51,7 @@ namespace AoC2021
             var co2 = Convert.ToInt32(numbers[0], 2);
 
             Console.WriteLine(oxygen * co2);
+            return oxygen * co2;
         }
 
         private static List<string> DoStuff(List<string> numbers, bool oxygen)

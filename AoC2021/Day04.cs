@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day04
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var draws = lines[0].Split(",").Select(x => int.Parse(x)).ToArray();
             List<Brick> bricks = InitBricks(lines);
@@ -20,14 +20,14 @@ namespace AoC2021
                     if (b.Mark(draws[i]))
                     {
                         Console.WriteLine(b.Calc(draws[i]));
-                        return;
+                        return b.Calc(draws[i]);
                     }
                 }
             }
-
+            return 0;
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
             var draws = lines[0].Split(",").Select(x => int.Parse(x)).ToArray();
             List<Brick> bricks = InitBricks(lines);
@@ -50,6 +50,7 @@ namespace AoC2021
                 bricks = temp;
             }
             Console.WriteLine(ans);
+            return ans;
         }
 
         private static List<Brick> InitBricks(string[] lines)

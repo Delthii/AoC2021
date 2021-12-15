@@ -8,17 +8,17 @@ namespace AoC2021
 {
     public class Day07
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
-            Solve(lines, (x) => x);
+            return Solve(lines, (x) => x);
         }
 
-        public void PartB(string[] lines)
+        public int PartB(string[] lines)
         {
-            Solve(lines, CalcFuel);
+            return Solve(lines, CalcFuel);
         }
 
-        private static void Solve(string[] lines, Func<int, int> calcFuel)
+        private static int Solve(string[] lines, Func<int, int> calcFuel)
         {
             var input = lines[0].Split(',').Select(str => int.Parse(str)).ToArray();
             var max = input.Max();
@@ -34,6 +34,7 @@ namespace AoC2021
                 ans = Math.Min(ans, fuel);
             }
             Console.WriteLine(ans);
+            return ans;
         }
 
         private int CalcFuel(int dist)

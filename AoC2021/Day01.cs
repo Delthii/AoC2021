@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day01
     {
-        public void PartA(string[] input)
+        public int PartA(string[] input)
         {
             var numbers = input.Select(x => int.Parse(x)).ToArray();
             int cnt = 0;
@@ -19,9 +19,10 @@ namespace AoC2021
             }
 
             Console.WriteLine(cnt);
+            return cnt;
         }
 
-        public void PartB(string[] input)
+        public int PartB(string[] input)
         {
             var numbers = input.Select(x => int.Parse(x)).ToArray();
             int cnt = 0;
@@ -34,6 +35,7 @@ namespace AoC2021
             }
 
             Console.WriteLine(cnt);
+            return cnt;
         }
     }
 }

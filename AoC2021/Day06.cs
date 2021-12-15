@@ -8,7 +8,7 @@ namespace AoC2021
 {
     public class Day06
     {
-        public void PartA(string[] lines)
+        public int PartA(string[] lines)
         {
             var fishes = lines[0].Split(',').Select(l => int.Parse(l)).ToList();
             for(int i = 0; i < 80; ++i)
@@ -28,9 +28,10 @@ namespace AoC2021
             }
 
             Console.WriteLine(fishes.Count);
+            return fishes.Count;
         }
 
-        public void PartB(string[] lines)
+        public long PartB(string[] lines)
         {
             var fishes = lines[0].Split(',').Select(l => long.Parse(l)).ToList();
 
@@ -59,7 +60,8 @@ namespace AoC2021
                 dict[0] = oldState[1];
             }
 
-            Console.WriteLine(dict.Values.Sum()); 
+            Console.WriteLine(dict.Values.Sum());
+            return dict.Values.Sum();
         }
 
         
