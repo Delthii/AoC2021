@@ -139,5 +139,13 @@ namespace Tests
             Assert.AreEqual(673, day15.PartA(GetInput(15)));
             Assert.AreEqual(2893, day15.PartB(GetInput(15)));
         }
+
+        [Test]
+        public void Day16()
+        {
+            var day16 = new Day16();
+            Assert.AreEqual(974, day16.PartA(GetInput(16)));
+            Assert.AreEqual(180616437720, day16.PartB(GetInput(16)));
+        }
     }
 }
